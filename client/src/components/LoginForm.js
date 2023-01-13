@@ -5,7 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
 
-function LoginForm(){
+function LoginForm({ onLogin }){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     // const [loading, setLoading] = useState(false)
@@ -20,8 +20,11 @@ function LoginForm(){
             method: "POST",
             headers: { "Content-Type":"application/json"},
             body: JSON.stringify({ username, password })
-        }).then(res => res.json())
-        .then(console.log)
+        }).then(res => {
+            if(res.ok){
+                res.json().then((user) => onLogin(user))
+            }
+        })
         // Use setLoading response.ok and setLoading to determine whether or not to log in the user...
     }
 

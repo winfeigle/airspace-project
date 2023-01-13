@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 
 function LoginForm(){
@@ -25,28 +27,34 @@ function LoginForm(){
 
     return(
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mt-3 mb-3" controlId="formUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control 
-                    type="text" 
-                    placeholder="username" 
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control 
-                    type="password" 
-                    placeholder="••••••••" 
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)}
-                    />
-            </Form.Group>
-
-            <Button variant="info" type="submit">
-                Login
-            </Button>
+            <FloatingLabel
+                controlId="floatingInput"
+                label="Username"
+                className="mb-3"
+                >
+                    <Form.Control 
+                        type="text" 
+                        placeholder="name@example.com" 
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        />
+            </FloatingLabel>
+            <FloatingLabel 
+                controlId="floatingPassword" 
+                label="Password"
+                >
+                    <Form.Control 
+                        type="password" 
+                        placeholder="Password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+            </FloatingLabel>
+            <Button 
+                variant="info" 
+                type="submit"
+                >Login
+                </Button>
         </Form>
     );
 }

@@ -2,9 +2,9 @@ import React from "react";
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 
-import LightLogo from './light-logo.svg'
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import NavBar from "./components/NavBar";
 
 
 function App() {
@@ -13,9 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={LightLogo} alt="Airspace logo" className="app-logo"/>
-        <Routes>
+      <NavBar />
+      <Routes>
             <Route 
               path="/" 
               element={<LoginForm />} 
@@ -25,7 +24,6 @@ function App() {
               element={<SignupForm />} 
               />
           </Routes>
-      </header>
     </div>
   );
 }

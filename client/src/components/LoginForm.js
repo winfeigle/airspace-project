@@ -6,13 +6,13 @@ import Form from 'react-bootstrap/Form';
 function LoginForm(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
 
     console.log(`Username: ${username}, Password: ${password}`)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
+        // setLoading(true)
 
         fetch('/login', {
             method: "POST",
@@ -34,7 +34,6 @@ function LoginForm(){
                     onChange={(e) => setUsername(e.target.value)}
                     />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
@@ -46,34 +45,9 @@ function LoginForm(){
             </Form.Group>
 
             <Button variant="info" type="submit">
-                Submit
+                Login
             </Button>
         </Form>
-        // <form onSubmit="">
-        //    <label>Username</label>
-        //     <input
-        //         type="text"
-        //         id="username"
-        //         autoComplete="off"
-        //         value={username}
-        //         onChange={(e) => setUsername(e.target.value)}
-        //         />
-        //     <label>Password</label>
-        //     <input
-        //         type="password"
-        //         id="password"
-        //         autoComplete="off"
-        //         value={password}
-        //         onChange={(e) => setPassword(e.target.value)}
-        //         />
-        //     <Button 
-        //         type="submit" 
-        //         variant="light" 
-        //         // active/disabled
-        //         >
-        //         Login
-        //         </Button>
-        // </form>
     );
 }
 

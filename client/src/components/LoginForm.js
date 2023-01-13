@@ -12,9 +12,7 @@ function LoginForm({ onLogin }){
     const [password, setPassword] = useState("");
     // const [loading, setLoading] = useState(false)
 
-    console.log(`Username: ${username}, Password: ${password}`)
-
-    const handleSubmit = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault()
         // setLoading(true)
 
@@ -31,11 +29,11 @@ function LoginForm({ onLogin }){
     }
 
     return(
-        <Card className="mx-auto my-5" style={{ width: '18rem' }}>
-            <Card.Header>Please log in</Card.Header>
-        <Form className="p-3" onSubmit={handleSubmit}>
+    <Card className="mx-auto my-5" style={{ width: '18rem' }}>
+        <Card.Header>Please log in</Card.Header>
+        <Form className="p-3" onSubmit={handleLogin}>
             <FloatingLabel
-                className="mt-3 mb-3"
+                className="mb-3"
                 controlId="floatingInput"
                 label="Username"
                 >
@@ -58,19 +56,13 @@ function LoginForm({ onLogin }){
                         />
             </FloatingLabel>
             <Button 
-                className="mt-3"
+                className="mt-3 my-auto"
                 variant="info" 
                 type="submit"
                 >Login
             </Button>
-            <Button 
-                className="ms-3 mt-3"
-                variant="outline-dark"
-                href="/signup"
-                >or Signup
-            </Button>
         </Form>
-        </Card>
+    </Card>
     );
 }
 

@@ -32,7 +32,7 @@ function App() {
         />
       <Routes>
             <Route 
-              path="/" 
+              path="/login" 
               element={
                 <Login 
                   onLogin={login}

@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Card from 'react-bootstrap/Card';
+
 
 
 
@@ -29,11 +31,13 @@ function LoginForm({ onLogin }){
     }
 
     return(
-        <Form onSubmit={handleSubmit}>
+        <Card className="mx-auto my-5" style={{ width: '18rem' }}>
+            <Card.Header>Please log in</Card.Header>
+        <Form className="p-3" onSubmit={handleSubmit}>
             <FloatingLabel
+                className="mt-3 mb-3"
                 controlId="floatingInput"
                 label="Username"
-                className="mb-3"
                 >
                     <Form.Control 
                         type="text" 
@@ -54,11 +58,19 @@ function LoginForm({ onLogin }){
                         />
             </FloatingLabel>
             <Button 
+                className="mt-3"
                 variant="info" 
                 type="submit"
                 >Login
-                </Button>
+            </Button>
+            <Button 
+                className="ms-3 mt-3"
+                variant="outline-dark"
+                href="/signup"
+                >or Signup
+            </Button>
         </Form>
+        </Card>
     );
 }
 

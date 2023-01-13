@@ -47,14 +47,6 @@ function NavBar({ user, setUser }){
             />
           </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
-            {/* <Navbar.Text>
-                {user ? `Signed in as ${user.username.toUpperCase()}` : null}
-            </Navbar.Text>
-            <Button 
-                className="ms-3 mt-3 mb-3" variant="outline-light" 
-                onClick={handleLogout}
-                >Logout
-            </Button> */}
             {renderNavbarButtons()}
         </Navbar.Collapse>
         </Container>

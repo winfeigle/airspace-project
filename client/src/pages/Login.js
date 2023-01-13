@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 
 function Login({ onLogin }){
-
+    const [showLogin, setShowLogin] = useState(true)
+    
     return(
         <div>
-            { true ? 
+            { showLogin ? 
                 <LoginForm 
                     onLogin={onLogin} 
                     /> 

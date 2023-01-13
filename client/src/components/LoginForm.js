@@ -6,11 +6,25 @@ import Form from 'react-bootstrap/Form';
 function LoginForm(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
     console.log(`Username: ${username}, Password: ${password}`)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setLoading(true)
+
+        fetch('/login', {
+            method: "POST",
+            headers: { "Content-Type":"application/json"},
+            body: JSON.stringify({ username, password })
+        }).then(res => res.json())
+        .then(console.log)
+        // Use setLoading response.ok and setLoading to determine whether or not to log in the user...
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className="mt-3 mb-3" controlId="formUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control 

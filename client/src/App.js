@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
-import logo from './airspace-logo.png'
+import LightLogo from './light-logo.svg'
+// import DarkLogo from './dark-logo.svg'
 import LoginForm from './components/LoginForm';
 
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="Airspace logo" className="app-logo"/>
+        <img src={LightLogo} alt="Airspace logo" className="app-logo"/>
         <LoginForm />
       </header>
     </div>

@@ -37,6 +37,7 @@
 
 #navbar{
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1;
 }
@@ -98,14 +99,14 @@ h2#star-rating{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   background-color: white;
   padding: 12px;
   border-radius: 12px;
-  position: sticky;
-  top: 50px;
-  z-index: 1;
-  box-shadow: 5px 5px 10px #282c34;
+  display: flex;
+    position: sticky;
+    top: 50px;
+    z-index: 1;
+    margin-top: 20px;
 }
 
 #dropdown{
@@ -119,11 +120,31 @@ h2#star-rating{
 }
 
 #search-bar{
-  width: 400px;
+  min-width: fit-content;
+  width: 300px;
+}
+
+#keyword{
+  color: green;
 }
 
 .vertical-seperator {
-  border-left: 3px dotted #d8d8d8;
+  border-left: 3px dotted #acb4c3;
   height: 25px;
   margin: 0px 15px;
+}
+
+div#listing-container{
+  display: flex;
+  justify-content: center;
+}
+
+Form#listing-form{
+  background-color: #222529;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: start;
+  width: 60%;
+  margin-top: 100px;
 }

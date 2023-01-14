@@ -24,8 +24,11 @@ function NavBar({ user, setUser }){
                     <Navbar.Text id="current-user-name">
                        Hey, <b>{`@${user.username}`}</b>
                     </Navbar.Text>
+                    <Button variant="info"     className="ms-3" href="/create-listing">
+                        ＋
+                    </Button>
                     <Button 
-                        className="ms-4 mt-3 mb-3" variant="outline-light" 
+                        className="ms-2 mt-3 mb-3" variant="outline-info" 
                         onClick={handleLogout}
                         >Logout
                     </Button>
@@ -38,11 +41,12 @@ function NavBar({ user, setUser }){
         <div>
         <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
-              alt=""
+                id='nav-logo'
+              alt="airspace logo"
               src={LightLogo}
-              width="100"
+              width="120"
               className="d-inline-block align-top"
             />
           </Navbar.Brand>

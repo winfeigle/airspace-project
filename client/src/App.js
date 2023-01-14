@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Login from './pages/Login';
 import Spaces from "./pages/Spaces";
+import CreateListing from "./pages/CreateListing";
 import NavBar from "./components/NavBar";
 
 
@@ -34,6 +35,10 @@ function App() {
           <Route 
             path="/" 
             element={<Spaces />} 
+            />
+            <Route 
+            path="/create-listing" 
+            element={<CreateListing />} 
             />
         </Routes>
         }

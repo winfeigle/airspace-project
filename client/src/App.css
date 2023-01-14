@@ -37,3 +37,7 @@
     transform: rotate(360deg);
   }
 }
+
+#current-user-name p {
+  opacity: 50%;
+}

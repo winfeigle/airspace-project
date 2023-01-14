@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Card from 'react-bootstrap/Card';
 
-function SignupForm(){
+
+function SignupForm({ onLogin }){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [password_confirmation, setPasswordConfirmation] = useState("")
@@ -17,15 +17,19 @@ function SignupForm(){
             method: "POST",
             headers: { "Content-Type":"application/json"},
             body: JSON.stringify({ username, password })
-        })
+        }).then((r) => {
+            if (r.ok) {
+              r.json().then((user) => onLogin(user));
+            } else {
+            //   r.json().then((err) => setErrors(err.errors));
+            }
+          });
     }
 
     return(
-    <Card className="mx-auto my-5" style={{ width: '18rem' }}>
-            <Card.Header>Sign up now</Card.Header>
         <Form className="p-3" onSubmit={handleSignup}>
             <FloatingLabel
-                className="mt-3 mb-3"
+                className="mb-3"
                 controlId="floatingInput"
                 label="Username"
                 >
@@ -59,14 +63,15 @@ function SignupForm(){
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
             </FloatingLabel>
-            <Button 
-                className="mt-3"
-                variant="info" 
-                type="submit"
-                >Create Account
+            <div className="d-grid gap-2">
+                <Button 
+                    className="mt-3"
+                    variant="dark" 
+                    type="submit"
+                    >Signup
                 </Button>
+            </div>
         </Form>
-    </Card>
     );
 }
 

@@ -21,11 +21,11 @@ function NavBar({ user, setUser }){
         if(user){
             return(
                 <>
-                    <Navbar.Text>
-                        {`Signed in as ${user.username.toUpperCase()}`}
+                    <Navbar.Text id="current-user-name">
+                       Hey, <b>{`@${user.username}`}</b>
                     </Navbar.Text>
                     <Button 
-                        className="ms-3 mt-3 mb-3" variant="outline-light" 
+                        className="ms-4 mt-3 mb-3" variant="outline-light" 
                         onClick={handleLogout}
                         >Logout
                     </Button>

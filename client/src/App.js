@@ -3,12 +3,12 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 
 import Login from './pages/Login';
-import SignupForm from './components/SignupForm';
+import Spaces from "./pages/Spaces";
 import NavBar from "./components/NavBar";
 
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     // auto-login
@@ -19,10 +19,6 @@ function App() {
     });
   }, []);
 
-  const login = (loginUser) => {
-    setUser(loginUser)
-  }
-
   if (!user) return <Login onLogin={setUser} />;
 
   return (
@@ -32,17 +28,10 @@ function App() {
         setUser={setUser}
         />
       <Routes>
+        
             <Route 
-              path="/login" 
-              element={
-                <Login 
-                  onLogin={login}
-                  />
-              } 
-              />
-            <Route 
-              path="signup" 
-              element={<SignupForm />} 
+              path="/" 
+              element={<Spaces />} 
               />
           </Routes>
     </div>

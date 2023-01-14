@@ -2,9 +2,6 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Card from 'react-bootstrap/Card';
-
-
 
 
 function LoginForm({ onLogin }){
@@ -29,9 +26,7 @@ function LoginForm({ onLogin }){
     }
 
     return(
-    <Card className="mx-auto my-5" style={{ width: '18rem' }}>
-        <Card.Header>Please log in</Card.Header>
-        <Form className="p-3" onSubmit={handleLogin}>
+    <Form className="p-3" onSubmit={handleLogin}>
             <FloatingLabel
                 className="mb-3"
                 controlId="floatingInput"
@@ -55,14 +50,15 @@ function LoginForm({ onLogin }){
                         onChange={(e) => setPassword(e.target.value)}
                         />
             </FloatingLabel>
-            <Button 
-                className="mt-3 my-auto"
-                variant="info" 
-                type="submit"
-                >Login
-            </Button>
+            <div className="d-grid gap-2">
+                <Button 
+                    className="mt-3 my-auto"
+                    variant="info" 
+                    type="submit"
+                    >Login
+                </Button>
+            </div>
         </Form>
-    </Card>
     );
 }
 

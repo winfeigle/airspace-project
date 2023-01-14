@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :spaces, only: [:index]
+  resources :spaces, only: [:index, :show]
   get '/me', to: 'users#show'
   post '/signup', to: 'users#create'
 

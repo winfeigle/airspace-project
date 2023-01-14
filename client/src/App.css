@@ -55,7 +55,9 @@
 }
 
 article.space-card-info{
-  padding-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .space-card-info h2, .space-card-info h3{
@@ -72,4 +74,9 @@ article.space-card-info{
 span.space-timeframe{
   font-weight: 300;
   opacity: 65%;
+}
+
+h2#star-rating{
+  font-size: 0.9rem;
+  color: #61dafb;
 }

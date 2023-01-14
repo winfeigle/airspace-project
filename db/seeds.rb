@@ -27,7 +27,7 @@ office_spaces = [
         description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false), 
         image_url: office_spaces.sample,
         price: rand(40..500), 
-        rating: rand(3.7...5.0),
+        rating: rand(3.2...5.0).round(2),
         user_id: User.all.sample.id
         )
 end

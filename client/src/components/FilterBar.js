@@ -9,7 +9,7 @@ function FilterBar(){
     return(
         <div id="filter-search-bar">     
         <Dropdown id='dropdown' >
-                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
                     <img id="filter-icon" alt="filter button" src={FilterIcon}/>  Filter
                 </Dropdown.Toggle>
 

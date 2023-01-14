@@ -42,9 +42,6 @@
   z-index: 1;
 }
 
-#current-user-name p {
-  opacity: 50%;
-}
 
 .spaces-page{
   display: flex;
@@ -115,8 +112,8 @@ h2#star-rating{
 }
 
 #filter-icon{
-  height: 18px;
-  padding: 2px;
+  height: 16px;
+  margin: 4px 10px 5px 5px;
 }
 
 #search-bar{

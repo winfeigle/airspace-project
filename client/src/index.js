@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <BrowserRouter>
+  <style>{'body { background-color: #282c34; }'}</style>
      <App />
   </BrowserRouter>,
   document.getElementById('root')

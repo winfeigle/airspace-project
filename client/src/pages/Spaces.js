@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SpaceCard from "../components/SpaceCard";
+import FilterBar from "../components/FilterBar";
 
 
 
@@ -12,11 +13,13 @@ function Spaces(){
 
 
     return(
+    <div className="spaces-page">
+    <FilterBar />
         <div className="spaces-container">
            {
             spaces.map(space => {
                 return(
-                    <SpaceCard 
+                    <SpaceCard
                         key={space.id} 
                         space={space}
                         />
@@ -24,7 +27,7 @@ function Spaces(){
             })
            }
         </div>
-            
+    </div>  
     )
 }
 

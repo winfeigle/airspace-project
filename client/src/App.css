@@ -1,8 +1,6 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  width: 100vw;
-  height: 100vh;
 }
 
 .App-logo {
@@ -42,6 +40,13 @@
   opacity: 50%;
 }
 
+.spaces-page{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
 .spaces-container{
   display: flex;
   justify-content: center;
@@ -79,4 +84,15 @@ span.space-timeframe{
 h2#star-rating{
   font-size: 0.9rem;
   color: #61dafb;
+}
+
+#filter-bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+  background-color: rgb(210, 209, 214);
+  width: 400px;
+  height: 80px;
+  border-radius: 20px;
 }

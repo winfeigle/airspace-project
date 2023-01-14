@@ -3,4 +3,6 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 8 }
 
     has_secure_password
+
+    has_many :spaces
 end

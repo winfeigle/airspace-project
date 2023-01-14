@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React, { useEffect, useState } from "react";
 
 function Spaces(){
+    const [spaces, setSpaces] = useState([])
 
-    const renderSpaces = () => {
-        // fetch('/spaces')
-    }
+    useEffect(() => {
+        fetch("/spaces")
+          .then((r) => r.json())
+          .then(setSpaces);
+      }, []);
+
 
     return(
         <div className="spaces-container">
-            {renderSpaces}
+           {console.log(spaces)}
         </div>
             
     )

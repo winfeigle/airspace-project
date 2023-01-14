@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 
 function LoginForm({ onLogin }){
@@ -26,39 +28,39 @@ function LoginForm({ onLogin }){
     }
 
     return(
-    <Form className="p-3" onSubmit={handleLogin}>
-            <FloatingLabel
-                className="mb-3"
-                controlId="floatingInput"
-                label="Username"
-                >
-                    <Form.Control 
-                        type="text" 
-                        placeholder="name@example.com" 
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        />
-            </FloatingLabel>
-            <FloatingLabel 
-                controlId="floatingPassword" 
-                label="Password"
-                >
-                    <Form.Control 
-                        type="password" 
-                        placeholder="Password" 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        />
-            </FloatingLabel>
-            <div className="d-grid gap-2">
-                <Button 
-                    className="mt-3 my-auto"
-                    variant="info" 
-                    type="submit"
-                    >Login
-                </Button>
-            </div>
-        </Form>
+    <Form className="my-3" onSubmit={handleLogin}>
+        <FloatingLabel
+            className="mb-3"
+            controlId="floatingInput"
+            label="Username"
+            >
+                <Form.Control 
+                    type="text" 
+                    placeholder="name@example.com" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    />
+        </FloatingLabel>
+        <FloatingLabel 
+            controlId="floatingPassword" 
+            label="Password"
+            >
+                <Form.Control 
+                    type="password" 
+                    placeholder="Password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+        </FloatingLabel>
+        <div className="d-grid gap-2">
+            <Button 
+                className="mt-3 my-auto"
+                variant="info" 
+                type="submit"
+                >Login
+            </Button>
+        </div>
+    </Form>
     );
 }
 

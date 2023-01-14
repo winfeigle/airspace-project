@@ -19,21 +19,22 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
-
   return (
     <div className="App">
       <NavBar 
         user={user}
         setUser={setUser}
         />
-      <Routes>
         
-            <Route 
-              path="/" 
-              element={<Spaces />} 
-              />
-          </Routes>
+        { !user ? <Login onLogin={setUser} /> : 
+          <Routes>
+        
+          <Route 
+            path="/" 
+            element={<Spaces />} 
+            />
+        </Routes>
+        }
     </div>
   );
 }

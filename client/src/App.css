@@ -35,6 +35,12 @@
   }
 }
 
+#navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 #current-user-name p {
   opacity: 50%;
 }
@@ -44,12 +50,15 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
+  position: relative;
+  top: 100px;
 }
 
 .spaces-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
 .space-card{
@@ -85,13 +94,36 @@ h2#star-rating{
   color: #61dafb;
 }
 
-#filter-bar{
+#filter-search-bar{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 25px;
-  background-color: rgb(210, 209, 214);
+  margin-top: 20px;
+  background-color: white;
+  padding: 12px;
+  border-radius: 12px;
+  position: sticky;
+  top: 50px;
+  z-index: 1;
+  box-shadow: 5px 5px 10px #282c34;
+}
+
+#dropdown{
+  display: inline-flex;
+  align-content: center;
+}
+
+#filter-icon{
+  height: 18px;
+  padding: 2px;
+}
+
+#search-bar{
   width: 400px;
-  height: 80px;
-  border-radius: 20px;
+}
+
+.vertical-seperator {
+  border-left: 3px dotted #d8d8d8;
+  height: 25px;
+  margin: 0px 15px;
 }

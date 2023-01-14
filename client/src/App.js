@@ -21,10 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar 
-        user={user}
-        setUser={setUser}
-        />
+      <div id='navbar'>
+        <NavBar 
+          user={user}
+          setUser={setUser}
+          />
+      </div>
         
         { !user ? <Login onLogin={setUser} /> : 
           <Routes>

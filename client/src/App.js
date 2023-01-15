@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Spaces from "./pages/Spaces";
 import CreateListing from "./pages/CreateListing";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             />
         </Routes>
         }
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ puts "Seeding database..."
 
 #  CREATE USERS
 User.create(username: "Win", password: "password")
+
 10.times do
     User.create(username: Faker::Name.first_name, password: "password")
 end

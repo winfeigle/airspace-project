@@ -9,6 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 function LoginForm({ onLogin }){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("")
     // const [loading, setLoading] = useState(false)
 
     const handleLogin = (e) => {
@@ -22,9 +23,10 @@ function LoginForm({ onLogin }){
         }).then(res => {
             if(res.ok){
                 res.json().then((user) => onLogin(user))
+            } else{
+                res.json().then((err) => setError(`${Object.keys(err)}: ${Object.values(err)}`))
             }
         })
-        // Use setLoading response.ok and setLoading to determine whether or not to log in the user...
     }
 
     return(
@@ -52,6 +54,15 @@ function LoginForm({ onLogin }){
                     onChange={(e) => setPassword(e.target.value)}
                     />
         </FloatingLabel>
+
+        {
+            error ? 
+            <div className="errors-container">
+                <span id="error-message">{error}</span>
+            </div> 
+            : null 
+        }
+
         <div className="d-grid gap-2">
             <Button 
                 className="mt-3 my-auto"

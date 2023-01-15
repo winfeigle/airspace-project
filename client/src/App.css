@@ -121,10 +121,6 @@ h2#star-rating{
   width: 300px;
 }
 
-#keyword{
-  color: green;
-}
-
 .vertical-seperator {
   border-left: 3px dotted #acb4c3;
   height: 25px;
@@ -136,12 +132,66 @@ div#listing-container{
   justify-content: center;
 }
 
-Form#listing-form{
+form#listing-form{
+  display: grid;
+  width: 50%;
+  max-width: 700px;
+  min-width: 500px;
   background-color: #222529;
   color: rgba(255, 255, 255, 0.5);
   padding: 20px;
   border-radius: 10px;
   text-align: start;
-  width: 60%;
-  margin-top: 100px;
+  margin: 100px;
 }
+
+#listing-form input, #listing-form textarea{
+  margin: 0 auto;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  transition: 500ms;
+}
+
+#listing-form input{
+  width: 100%;
+}
+
+#listing-form textarea{
+  width: 100%;
+}
+
+input:focus,textarea:focus {
+  background-color: #d6d9df;
+  transition: 500ms;
+}
+
+
+form#listing-form Button{
+  justify-self: center;
+  margin-top: 20px;
+  width: 50%;
+}
+
+div.errors-container{
+  margin-top: 10px;
+  justify-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+span#error-message{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 3px;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.10);
+  border-radius: 5px;
+}
+
+

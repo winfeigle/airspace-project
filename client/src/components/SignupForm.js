@@ -9,10 +9,10 @@ function SignupForm({ onLogin }){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [password_confirmation, setPasswordConfirmation] = useState("")
+    const [errors, setErrors] = useState([])
 
     const handleSignup = (e) => {
         e.preventDefault()
-        // setLoading(true)
 
         fetch('/signup', {
             method: "POST",
@@ -22,7 +22,7 @@ function SignupForm({ onLogin }){
             if (r.ok) {
               r.json().then((user) => onLogin(user));
             } else {
-            //   r.json().then((err) => setErrors(err.errors));
+              r.json().then((err) => setErrors(err.errors));
             }
           });
     }
@@ -64,6 +64,16 @@ function SignupForm({ onLogin }){
                     onChange={(e) => setPasswordConfirmation(e.target.value)}
                     />
         </FloatingLabel>
+
+        {
+            errors ? 
+            <div className="errors-container">
+            {errors.map((err) => (
+                    <span id="error-message" key={err}>{`Invalid: ${err}`}</span>))}
+                </div> 
+            : null 
+        }
+
         <div className="d-grid gap-2">
             <Button 
                 className="mt-3"

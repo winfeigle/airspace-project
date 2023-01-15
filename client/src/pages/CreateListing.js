@@ -1,66 +1,115 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 
 function CreateListing(){
-    const [formData, setFormData ] = useState({
+    const [errors, setErrors] = useState([])
+    const [formData, setFormData] = useState({
         name: "",
         location: "",
         description: "",
         price: "",
-        image_url: ""
+        image_url: "",
+        rating: 0
     })
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      fetch('/spaces', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json'},
+        body: JSON.stringify(formData)
+      }).then((r) => {
+        if(r.ok){
+          setFormData({name: "",location: "",description: "",price: "",image_url: ""})
+        } else{
+          r.json().then((err) => setErrors(err.errors));
+        }
+      })
+    }
 
+    const handleChange = (e) => {
+      setFormData({
+                ...formData,
+                [e.target.name]: e.target.value,
+              })
     }
 
     return(
-        <div id="listing-container">
-        <Form id="listing-form">
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter Title" />
-        </Form.Group>
+      <div id="listing-container">
+        <form id="listing-form" onSubmit={(e) => handleSubmit(e)}>
+          <h2 style={{ textAlign: "center"}}>Create new listing</h2>
+          <label>Title
+            <br/>
+            <input 
+              id="name"
+              onChange={(e) => handleChange(e)}
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={formData.name}
+              />
+          </label>
 
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Label>Image URL</Form.Label>
-          <Form.Control type="text" placeholder="Paste image url" />
-        </Form.Group>
-      </Row>
+          <label>Location
+            <br/>
+            <input 
+              id="location"
+              onChange={(e) => handleChange(e)}
+              type="text"
+              placeholder="Denver, Colorado"
+              name="location"
+              value={formData.location}
+              />
+          </label>
 
-      <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
-      </Form.Group>
+          <label>Price
+            <br/>
+            <input 
+              id="price"
+              onChange={(e) => handleChange(e)}
+              type="number"
+              placeholder="100"
+              name="price"
+              value={formData.price}
+              />
+          </label>
 
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
-      </Form.Group>
+          <label>Image URL
+            <br/>
+            <input 
+              onChange={(e) => handleChange(e)}
+              type="text"
+              placeholder="Paste URL here"
+              name="image_url"
+              value={formData.image_url}
+              />
+          </label>
 
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridCity">
-          <Form.Label>City</Form.Label>
-          <Form.Control />
-        </Form.Group>
+          <label htmlFor="description">Description
+            <br/>
+              <textarea 
+                id="description" 
+                name="description"
+                placeholder="Tell us more..."
+                onChange={(e) => handleChange(e)}
+                type="textarea"
+                value={formData.description}
+                >
+              </textarea>
+          </label>
 
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>State</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-          </Form.Select>
-        </Form.Group>
-      </Row>
-
+          <div className="errors-container">
+            {
+              errors.map((err) => (
+              <span id="error-message" key={err}>{`Invalid: ${err}`}</span>
+            ))
+            }
+          </div>
+      
       <Button variant="info" type="submit">
         Submit
       </Button>
-    </Form>
+    </form>
     </div>
     )
 }

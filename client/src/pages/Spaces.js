@@ -8,7 +8,9 @@ function Spaces(){
     const [spaces, setSpaces] = useState([])
 
     useEffect(() => {
-        fetch("/spaces").then((r) => r.json()).then(setSpaces);
+        fetch("/spaces")
+            .then((r) => r.json())
+            .then(setSpaces);
       }, []);
 
 
@@ -17,13 +19,8 @@ function Spaces(){
     <FilterBar />
         <div className="spaces-container">
            {
-            spaces.map(space => {
-                return(
-                    <SpaceCard
-                        key={space.id} 
-                        space={space}
-                        />
-                )
+            spaces.map((space) => {
+                return(<SpaceCard key={space.id} space={space}/>);
             })
            }
         </div>

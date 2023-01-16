@@ -267,11 +267,19 @@ div.review{
   border-radius: 10px;
   background-color: #3b404a;
   width: 23rem;
+  height: min-content;
 }
 
 span.review-title{
   font-size: 1.1rem;
   font-weight: bold;
+}
+
+.horizontal-seperator{
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 0px;
 }
 
 div.review p{

@@ -11,6 +11,7 @@ function Reviews({ reviews }){
                         key={review.id} 
                         className="review">
                             <span className="review-title">{`"${review.title}"`}</span>
+                            <div className="horizontal-seperator"></div>
                             <p>{review.comment}</p>
                     </div>
                 )

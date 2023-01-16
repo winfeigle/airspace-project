@@ -250,12 +250,20 @@ div#information-container{
   padding-bottom: 0.5rem;
 }
 
+.list-group-item{
+  color: white !important;
+  background: #222529 !important;
+  transition: 200ms;
+}
+
 .list-group-item.active {
   /* Override bootstrap styles */
   color: #282c34 !important;
   border: none;
+  border-radius: 10px !important;
   background-color: #61dafb !important;
   z-index: 0 !important;
+  transition: 200ms;
 }
 
 #list-content{
@@ -289,6 +297,12 @@ div#reviews-container > div{
   background-color: #3b404a;
   min-width: 100%;
   height: min-content;
+}
+
+div.review-card-header{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 span.review-title{

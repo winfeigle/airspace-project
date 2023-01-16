@@ -44,7 +44,7 @@ function App() {
             />
             <Route 
             path="/spaces/:id" 
-            element={<SpaceListing />} 
+            element={<SpaceListing user={user}/>} 
             />
             
         </Routes>

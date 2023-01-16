@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
 
 
-function SpaceListing(){
+function SpaceListing({ user }){
     const [ spaceInfo, setSpaceInfo ] = useState([])
     const params = useParams()
     
@@ -49,7 +49,7 @@ function SpaceListing(){
                             <p>{spaceInfo.description}</p>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#reviews">
-                            <Reviews />
+                            <Reviews user={user} />
                         </Tab.Pane>
                         <Tab.Pane eventKey="#contact">
                             <b>Location</b>

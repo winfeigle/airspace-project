@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewForm from "./ReviewForm";
+import Button from 'react-bootstrap/Button';
 
-function Reviews(){
+
+function Reviews({user}){
     const params = useParams()
     const [ reviews, setReviews ] = useState([])
     
@@ -14,7 +16,14 @@ function Reviews(){
       }, [params.id]);
 
     const updateReviews = (data) => {
-        setReviews([...reviews, data])
+        setReviews([data, ...reviews])
+    }
+
+    const handleReviewDestroy = (reviewId) => {
+        console.log(reviewId)
+        fetch(`/reviews/${reviewId}`, {
+            method: "DELETE",
+        })
     }
 
     
@@ -31,7 +40,28 @@ function Reviews(){
                     <div 
                         key={review.id} 
                         className="review">
-                            <span className="review-title">{`"${review.title}"`}</span>
+                            <div className="review-card-header">
+                                <span className="review-title">{`"${review.title}"`}</span>
+
+                                {
+                                user.id === review.user.id ?
+                                <div className="review-button-container">
+                                    <Button
+                                    variant="outline-info" className="me-2"
+                                    >
+                                        edit
+                                    </Button>
+                                    <Button 
+                                    variant="dark"
+                                    onClick={()=> handleReviewDestroy(review.id)}>
+                                        ✕
+                                    </Button>
+                                </div>
+                                :
+                                null
+                                }
+                            </div>
+
                             <div className="horizontal-seperator"></div>
                             <p>{review.comment}</p>
                             <span className="review-username">

@@ -206,6 +206,7 @@ div#images-container{
   gap: 5px;
   justify-content: center;
   margin: 1rem;
+  padding-bottom: 1rem;
 }
 
 .featured-image img{
@@ -246,8 +247,15 @@ div#information-container{
 }
 
 #list-group{
-margin: 2rem auto;
-width: fit-content;
+  padding-bottom: 0.5rem;
+}
+
+.list-group-item.active {
+  /* Override bootstrap styles */
+  color: #282c34 !important;
+  border: none;
+  background-color: #61dafb !important;
+  z-index: 0 !important;
 }
 
 #list-content{
@@ -261,12 +269,21 @@ div#reviews-container{
   flex-wrap: wrap;
 }
 
-div.review{
+#reviews-container .reviews-header{
+  padding: 1rem;
+  width: 100%;
+  display: block;
+  font-size: 1.5rem;
+  opacity: 65%;
+}
+
+div#reviews-container > div{
+  align-items: flex-start;
   padding: 1rem;
   margin: 5px;
   border-radius: 10px;
   background-color: #3b404a;
-  width: 23rem;
+  min-width: 23rem;
   height: min-content;
 }
 
@@ -285,6 +302,11 @@ span.review-title{
 div.review p{
   padding-top: 10px;
   opacity: 70%;
+}
+
+span.review-username b{
+  color: #61dafb;
+  opacity: 50%;
 }
 
 

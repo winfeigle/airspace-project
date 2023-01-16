@@ -47,7 +47,9 @@ function SpaceListing(){
                             <p>{spaceInfo.description}</p>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#reviews">
-                            <Reviews reviews={spaceInfo.reviews}/>
+                            <Reviews 
+                                spaceId={spaceInfo.id}
+                                />
                         </Tab.Pane>
                         <Tab.Pane eventKey="#contact">
                             <b>Location</b>

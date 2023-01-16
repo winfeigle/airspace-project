@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-function Reviews({ reviews }){
+function Reviews({ spaceId }){
+    const [ reviews, setReviews ] = useState([])
+
+useEffect(() => {
+        fetch(`/spaces/${spaceId}/reviews`)
+            .then((r) => r.json())
+            .then(setReviews);
+      }, [reviews]);
 
     
     return(

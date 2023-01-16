@@ -8,6 +8,11 @@ class SpacesController < ApplicationController
         render json: space, status: :ok
     end
 
+    def reviews
+        reviews = Space.find_by(id: params[:id]).reviews
+        render json: reviews, status: :ok
+    end
+
     def create
         space = @current_user.spaces.create!(space_params)
         render json: space, status: :created

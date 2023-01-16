@@ -9,7 +9,9 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        byebug
+        review = Review.find_by(id: params[:id])
+        review.update(review_params)
+        render json: review, status: :accepted
     end
 
     def destroy

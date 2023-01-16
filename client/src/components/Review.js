@@ -3,12 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function Review({review, user, handleReviewEdit, handleReviewDestroy, editable}){
+function Review({review, user, handleReviewEdit, handleReviewDestroy}){
+    const [ editable, setEditable ] = useState(false)
     const [ comment, setComment ] = useState(review.comment)
 
-    const handleEdits = (e) => {
-        setComment(e.target.value)
-    }
 
 
 
@@ -21,12 +19,27 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy, editable})
             
             {user.id === review.user.id ?
                 <div className="review-button-container">
-                    <Button
-                    variant="outline-info" className="me-2"
-                    onClick={() => handleReviewEdit(review.id)}
-                    >
-                        {editable ? "save edits" : "edit"}
-                    </Button>
+
+                    { !editable ? 
+                        <Button
+                            variant="outline-info" className="me-2"
+                            onClick={() => {
+                                setEditable(!editable)
+                                }}
+                            > edit
+                        </Button>
+                    : 
+                        <Button
+                            variant="outline-info" className="me-2"
+                            onClick={() => {
+                                setEditable(!editable)
+                                handleReviewEdit(review.id, comment)
+                                }}
+                            > save edits
+                        </Button>
+                    }
+
+
 
                     { !editable ? 
                         <Button 
@@ -34,7 +47,9 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy, editable})
                             onClick={()=> {handleReviewDestroy(review.id)}}>
                             ✕
                         </Button> 
-                    : null }
+                    : 
+                        null 
+                    }
                     
                 </div> 
             : null}
@@ -50,7 +65,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy, editable})
                         rows="5"
                         name="comment"
                         value={comment}
-                        onChange={(e) => handleEdits(e)}
+                        onChange={(e) => setComment(e.target.value)}
                         />
                 </Form>
             : <p>{review.comment}</p>}

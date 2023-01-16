@@ -5,7 +5,6 @@ import ReviewForm from "./ReviewForm";
 
 
 function Reviews({user}){
-    const [ editable, setEditable ] = useState(false)
     const params = useParams()
     const [ reviews, setReviews ] = useState([])
     
@@ -21,8 +20,20 @@ function Reviews({user}){
         setReviews([data, ...reviews])
     }
 
-    const handleReviewEdit = (reviewId) => {
-        setEditable(!editable)
+    const handleReviewEdit = (reviewId, comment) => {
+        fetch(`/reviews/${reviewId}`, {
+            method: "PATCH",
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({comment: comment})
+        }).then(res => {
+            if(res.ok){
+                // ===================
+                // 
+                // RE-RENDER REVIEWS WITH UPDATED COMMENT HERE...
+                // 
+                // ===================
+            }
+        })
     }
 
     const handleReviewDestroy = (reviewId) => {
@@ -63,7 +74,6 @@ function Reviews({user}){
                     user={user}
                     handleReviewDestroy={handleReviewDestroy}
                     handleReviewEdit={handleReviewEdit}
-                    editable={editable}
                     />)
             })}
         </div>

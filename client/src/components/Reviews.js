@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function Reviews({ spaceId }){
+function Reviews({  }){
     const [ reviews, setReviews ] = useState([])
+    const params = useParams()
 
 useEffect(() => {
-        fetch(`/spaces/${spaceId}/reviews`)
+        fetch(`/spaces/${params.id}/reviews`)
             .then((r) => r.json())
             .then(setReviews);
-      }, [reviews]);
+      }, []);
+
 
     
     return(
         <div id="reviews-container">
-            {reviews?.map((review) => {
+            {reviews.map((review) => {
                 return(
                     <div 
                         key={review.id} 

@@ -255,4 +255,28 @@ width: fit-content;
   text-align: left;
 }
 
+div#reviews-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+div.review{
+  padding: 1rem;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #3b404a;
+  width: 23rem;
+}
+
+span.review-title{
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+div.review p{
+  padding-top: 10px;
+  opacity: 70%;
+}
+
 

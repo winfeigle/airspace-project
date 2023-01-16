@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Review from "../components/Review";
+import Reviews from "../components/Reviews";
 
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
@@ -8,7 +8,6 @@ import Tab from 'react-bootstrap/Tab';
 
 function SpaceListing(){
     const [ spaceInfo, setSpaceInfo ] = useState([])
-    const [ pageContent, setPageContent ] = useState([])
     const params = useParams()
     
     useEffect(() => {
@@ -48,10 +47,11 @@ function SpaceListing(){
                             <p>{spaceInfo.description}</p>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#reviews">
-                            <Review />
+                            <Reviews reviews={spaceInfo.reviews}/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#contact">
-                            Contact info here...
+                            <b>Location</b>
+                            <p>{spaceInfo.location}</p>
                         </Tab.Pane>
                     </Tab.Content>
             </Tab.Container>

@@ -34,17 +34,17 @@ puts "Seeding database..."
 # end
 
 
-# CREATE REVIEWS
+# # CREATE REVIEWS
 
-Space.all.each do |space|
-    3.times do
-        space.reviews.create(
-            title: Faker::Quote.singular_siegler,
-            comment: Faker::Quote.matz,
-            user_id: User.all.sample.id
-            )
-    end
-end
+# Space.all.each do |space|
+#     3.times do
+#         space.reviews.create(
+#             title: Faker::Quote.singular_siegler,
+#             comment: Faker::Quote.matz,
+#             user_id: User.all.sample.id
+#             )
+#     end
+# end
 
 
 

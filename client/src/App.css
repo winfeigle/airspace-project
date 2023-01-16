@@ -269,6 +269,10 @@ div#reviews-container{
   flex-wrap: wrap;
 }
 
+#reviews-container form{
+  display: flex;
+}
+
 #reviews-container .reviews-header{
   padding: 1rem;
   width: 100%;

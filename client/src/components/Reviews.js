@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Review from "./Review";
 import ReviewForm from "./ReviewForm";
-import Button from 'react-bootstrap/Button';
 
 
 function Reviews({user}){
+    const [ editable, setEditable ] = useState(false)
     const params = useParams()
     const [ reviews, setReviews ] = useState([])
     
@@ -15,8 +16,13 @@ function Reviews({user}){
             .then(setReviews);
       }, [params.id]);
 
+
     const updateReviews = (data) => {
         setReviews([data, ...reviews])
+    }
+
+    const handleReviewEdit = (reviewId) => {
+        setEditable(!editable)
     }
 
     const handleReviewDestroy = (reviewId) => {
@@ -38,8 +44,6 @@ function Reviews({user}){
                 })
             }
         })
-
-        
     }
 
     
@@ -51,40 +55,16 @@ function Reviews({user}){
                 spaceId={params.id}
                 updateReviews={updateReviews}
                 />
-            {reviews.map((review) => {
-                return(
-                    <div 
-                        key={review.id} 
-                        className="review">
-                            <div className="review-card-header">
-                                <span className="review-title">{`"${review.title}"`}</span>
 
-                                {
-                                user.id === review.user.id ?
-                                <div className="review-button-container">
-                                    <Button
-                                    variant="outline-info" className="me-2"
-                                    >
-                                        edit
-                                    </Button>
-                                    <Button 
-                                    variant="dark"
-                                    onClick={()=> handleReviewDestroy(review.id)}>
-                                        ✕
-                                    </Button>
-                                </div>
-                                :
-                                null
-                                }
-                            </div>
-
-                            <div className="horizontal-seperator"></div>
-                            <p>{review.comment}</p>
-                            <span className="review-username">
-                                <b>{`@${review.user.username}`}</b>
-                            </span>
-                    </div>
-                )
+            {reviews.map(review => {
+                return(<Review 
+                    key={review.id}
+                    review={review} 
+                    user={user}
+                    handleReviewDestroy={handleReviewDestroy}
+                    handleReviewEdit={handleReviewEdit}
+                    editable={editable}
+                    />)
             })}
         </div>
     );

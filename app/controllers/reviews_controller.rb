@@ -8,6 +8,10 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
+    def update
+        byebug
+    end
+
     def destroy
         review = Review.find_by(id: params[:id])
         review.destroy

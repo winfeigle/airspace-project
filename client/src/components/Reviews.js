@@ -20,10 +20,26 @@ function Reviews({user}){
     }
 
     const handleReviewDestroy = (reviewId) => {
-        console.log(reviewId)
         fetch(`/reviews/${reviewId}`, {
             method: "DELETE",
+        }).then(res => {
+            if(res.ok){
+                setReviews((reviews) => {
+                    let filteredReviews = [];
+                    reviews.filter((review) => {
+                        if(review.id !== reviewId){
+                            filteredReviews.push(review);
+                        } else{
+                            return null;
+                        }
+                        return filteredReviews;
+                    })
+                    return filteredReviews;
+                })
+            }
         })
+
+        
     }
 
     

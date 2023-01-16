@@ -7,7 +7,7 @@ import Spaces from "./pages/Spaces";
 import CreateListing from "./pages/CreateListing";
 import SpaceListing from "./pages/SpaceListing";
 import NavBar from "./components/NavBar";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
             
         </Routes>
         }
-        {/* <Footer /> */}
+        <Footer />
     </div>
   );
 }

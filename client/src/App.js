@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from './pages/Login';
 import Spaces from "./pages/Spaces";
 import CreateListing from "./pages/CreateListing";
+import SpaceListing from "./pages/SpaceListing";
 import NavBar from "./components/NavBar";
 // import Footer from "./components/Footer";
 
@@ -31,7 +32,7 @@ function App() {
       </div>
         
         { !user ? <Login onLogin={setUser} /> : 
-          <Routes>
+        <Routes>
         
           <Route 
             path="/" 
@@ -41,6 +42,11 @@ function App() {
             path="/create-listing" 
             element={<CreateListing />} 
             />
+            <Route 
+            path="/spaces/:id" 
+            element={<SpaceListing />} 
+            />
+            
         </Routes>
         }
     </div>

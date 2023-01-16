@@ -1,14 +1,16 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
+import { useNavigate } from 'react-router-dom';
 
 function SpaceCard({space}){
-    const {name, location, rating, image_url, price} = space;
+    const {id, name, location, rating, image_url, price} = space;
+    const navigate = useNavigate()
 
     return(
         <div 
             className="space-card" 
-            onClick={() => console.log(space.name)}
+            onClick={() => navigate(`/spaces/${id}`)}
             >
                 <Card border="dark">
                     <Image src={image_url} style={{ aspectRatio: "1/1", height: "100%", width: "undefined", objectFit: "cover" }} rounded/>

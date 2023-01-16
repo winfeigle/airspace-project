@@ -194,4 +194,38 @@ span#error-message{
   border-radius: 5px;
 }
 
+div#images-container{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.featured-image img{
+  width: 100%; 
+  max-width: 40rem;
+  border-radius: 10px 0px 0px 10px;
+}
+
+div.supporting-images{
+  display: grid;
+  gap: 5px;
+}
+
+div.supporting-images .blank-image{
+  background-color: #474d59;
+  width: 150px;
+  height: auto;
+}
+
+.blank-image:first-child{
+  border-top-right-radius: 10px;
+  opacity: 80%;
+}
+
+.blank-image:last-child{
+  border-bottom-right-radius: 10px;
+  opacity: 60%;
+}
+
 

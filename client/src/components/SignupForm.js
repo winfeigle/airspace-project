@@ -17,7 +17,7 @@ function SignupForm({ onLogin }){
         fetch('/signup', {
             method: "POST",
             headers: { "Content-Type":"application/json"},
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password, password_confirmation })
         }).then((r) => {
             if (r.ok) {
               r.json().then((user) => onLogin(user));

@@ -194,6 +194,13 @@ span#error-message{
   border-radius: 5px;
 }
 
+div#space-container{
+  display: flexbox;
+    gap: 5px;
+    margin: 1rem;
+    flex-wrap: wrap;
+}
+
 div#images-container{
   display: flex;
   gap: 5px;
@@ -226,6 +233,29 @@ div.supporting-images .blank-image{
 .blank-image:last-child{
   border-bottom-right-radius: 10px;
   opacity: 60%;
+}
+
+div#information-container{
+  color: white;
+  gap: 5px;
+  display: flexbox;
+  justify-content: center;
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+}
+
+#tab-container{
+}
+
+#list-group{
+margin: 2rem auto;
+width: fit-content;
+}
+
+#list-content{
+  margin: 1rem;
+  text-align: left;
 }
 
 

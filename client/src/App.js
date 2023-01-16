@@ -49,7 +49,7 @@ function App() {
             
         </Routes>
         }
-        <Footer />
+        {user ? <Footer /> : null}
     </div>
   );
 }

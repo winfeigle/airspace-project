@@ -18,6 +18,7 @@ function SpaceListing(){
 
     return(
     <div id="space-container" style={{paddingTop: "120px"}}>
+        <h2 style={{color: "white"}}>{spaceInfo.name}</h2>
         <div id="images-container">
             <div className="featured-image">
                 <img src={spaceInfo.image_url} alt="office space"/>
@@ -43,6 +44,7 @@ function SpaceListing(){
                     </ListGroup>
                     <Tab.Content id="list-content">
                         <Tab.Pane eventKey="#information">
+                            
                             <b>Description</b>
                             <p>{spaceInfo.description}</p>
                         </Tab.Pane>

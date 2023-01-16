@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :reviews, only: [:index]
+  resources :reviews, only: [:index, :create]
   resources :spaces, only: [:index, :show, :create]
 
   get '/me', to: 'users#show'

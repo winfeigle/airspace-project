@@ -13,12 +13,19 @@ function Reviews(){
             .then(setReviews);
       }, [params.id]);
 
+    const updateReviews = (data) => {
+        setReviews([...reviews, data])
+    }
+
     
     return(
         <div id="reviews-container">
-            <ReviewForm />
 
             <h2 className="reviews-header"> Here's what others are saying... </h2>
+            <ReviewForm 
+                spaceId={params.id}
+                updateReviews={updateReviews}
+                />
             {reviews.map((review) => {
                 return(
                     <div 

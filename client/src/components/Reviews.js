@@ -27,11 +27,13 @@ function Reviews({user}){
             body: JSON.stringify({comment: comment})
         }).then(res => {
             if(res.ok){
+                console.log(reviewId, comment)
                 // ===================
                 // 
                 // RE-RENDER REVIEWS WITH UPDATED COMMENT HERE...
                 // 
                 // ===================
+
             }
         })
     }
@@ -41,18 +43,10 @@ function Reviews({user}){
             method: "DELETE",
         }).then(res => {
             if(res.ok){
-                setReviews((reviews) => {
-                    let filteredReviews = [];
+                setReviews(
                     reviews.filter((review) => {
-                        if(review.id !== reviewId){
-                            filteredReviews.push(review);
-                        } else{
-                            return null;
-                        }
-                        return filteredReviews;
-                    })
-                    return filteredReviews;
-                })
+                        return review.id !== reviewId
+                 }))
             }
         })
     }

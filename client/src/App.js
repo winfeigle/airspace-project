@@ -4,10 +4,10 @@ import { Route, Routes } from "react-router-dom";
 
 import Login from './pages/Login';
 import Spaces from "./pages/Spaces";
-import CreateListing from "./pages/CreateListing";
 import SpaceListing from "./pages/SpaceListing";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Account from "./pages/Account";
 
 
 function App() {
@@ -17,10 +17,14 @@ function App() {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser({
+          id: user.id,
+          username: user.username
+        }));
       }
     });
   }, []);
+
 
   return (
     <div className="App">
@@ -39,8 +43,8 @@ function App() {
             element={<Spaces />} 
             />
             <Route 
-            path="/create-listing" 
-            element={<CreateListing />} 
+            path="/my-account" 
+            element={<Account />} 
             />
             <Route 
             path="/spaces/:id" 

@@ -40,7 +40,7 @@ function CreateListing(){
     return(
       <div id="listing-container">
         <form id="listing-form" onSubmit={(e) => handleSubmit(e)}>
-          <h2 style={{ textAlign: "center"}}>Create new listing</h2>
+          <h4 style={{ textAlign: "center"}}>Create new listing</h4>
           <label>Title
             <br/>
             <input 

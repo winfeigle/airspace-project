@@ -39,8 +39,8 @@ function SpaceListing({ user }){
                         <ListGroup.Item action href="#reviews">
                         Reviews
                         </ListGroup.Item>
-                        <ListGroup.Item action href="#contact">
-                        Contact
+                        <ListGroup.Item action href="#book">
+                        Book
                         </ListGroup.Item>
                     </ListGroup>
                     <Tab.Content id="list-content">
@@ -67,10 +67,8 @@ function SpaceListing({ user }){
                         <Tab.Pane eventKey="#reviews">
                             <Reviews user={user} />
                         </Tab.Pane>
-                        <Tab.Pane eventKey="#contact">
-                            <b>Location</b>
-                            <p>{spaceInfo.location}</p>
-                            <b>Listing User</b>
+                        <Tab.Pane eventKey="#book">
+                            <b>Book today!</b>
                             
                         </Tab.Pane>
                     </Tab.Content>

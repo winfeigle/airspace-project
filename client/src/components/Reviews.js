@@ -59,7 +59,7 @@ function Reviews({user}){
     return(
         <div id="reviews-container">
 
-            <h2 className="reviews-header"> Here's what others are saying... </h2>
+            <h5 className="reviews-header"> Here's what others are saying... </h5>
             <ReviewForm 
                 spaceId={params.id}
                 updateReviews={updateReviews}

@@ -27,13 +27,16 @@ function Reviews({user}){
             body: JSON.stringify({comment: comment})
         }).then(res => {
             if(res.ok){
-                console.log(reviewId, comment)
-                // ===================
-                // 
-                // RE-RENDER REVIEWS WITH UPDATED COMMENT HERE...
-                // 
-                // ===================
-
+                setReviews((reviews) => {
+                    let updatedReviews = reviews.map(review => {
+                        if(review.id === reviewId){
+                           review.comment = comment;
+                        }
+                        return review;
+                    })
+                    return updatedReviews;
+                })
+    
             }
         })
     }
@@ -46,7 +49,8 @@ function Reviews({user}){
                 setReviews(
                     reviews.filter((review) => {
                         return review.id !== reviewId
-                 }))
+                    })
+                )
             }
         })
     }

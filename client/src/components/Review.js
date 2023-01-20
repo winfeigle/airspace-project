@@ -41,15 +41,13 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
 
 
 
-                    { !editable ? 
+                    { !editable && (
                         <Button 
                             variant="dark"
                             onClick={()=> {handleReviewDestroy(review.id)}}>
                             ✕
                         </Button> 
-                    : 
-                        null 
-                    }
+                    )}
                     
                 </div> 
             : null}

@@ -7,9 +7,9 @@ function UserReviews({reviews}){
         return(
             <Button 
                 variant="outline-secondary"
-                key={review.id}
                 className="user-review"
                 style={{textAlign: "left"}}
+                key={review.id}
                 href={`/spaces/${review.space_id}`}
                 >
                  <b>{review.title}</b>

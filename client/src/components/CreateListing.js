@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
-import {useNavigate} from 'react-router-dom';
 
-function CreateListing(){
-    const navigate = useNavigate();
+function CreateListing({addNewSpace}){
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: "",
@@ -22,8 +20,8 @@ function CreateListing(){
         body: JSON.stringify(formData)
       }).then((r) => {
         if(r.ok){
+          addNewSpace(formData)
           setFormData({name: "",location: "",description: "",price: "",image_url: ""})
-          navigate('/')
         } else{
           r.json().then((err) => setErrors(err.errors));
         }

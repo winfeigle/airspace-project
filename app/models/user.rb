@@ -7,6 +7,6 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :spaces, dependent: :destroy
-    has_many :reviews
-    has_many :spaces, through: :reviews
+    has_many :reviews, dependent: :destroy
+    # has_many :spaces, through: :reviews
 end

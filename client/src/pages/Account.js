@@ -8,21 +8,24 @@ function Account(){
     const [spaces, setSpaces] = useState([]);
 
     useEffect(() => {
-    // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-            setReviews(user.reviews)
             setSpaces(user.spaces)
+            setReviews(user.reviews)
         });
       }
     });
   }, []);
+
+  const addNewSpace = (formData) => {
+    setSpaces((spaces) => [formData, ...spaces])
+  }
     
 
     return(
         <div className="ugc-container">
-            <CreateListing />
+            <CreateListing addNewSpace={addNewSpace}/>
             <div className="review-space-container">
                 <UserReviews reviews={reviews}/>
                 <UserSpaces spaces={spaces}/>

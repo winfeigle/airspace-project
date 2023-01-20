@@ -43,7 +43,7 @@ function App() {
             element={<Spaces />} 
             />
             <Route 
-            path="/my-account" 
+            path="/account" 
             element={<Account />} 
             />
             <Route 

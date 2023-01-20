@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/esm/Button";
 
-function UserListings({spaces}){
+function UserSpaces({spaces}){
 
     const renderSpaces = spaces.map((space) => {
         return(
+            <div key={space.id}>
             <Button 
                 variant="outline-warning"
                 key={space.id}
@@ -12,11 +13,12 @@ function UserListings({spaces}){
                 href={`/spaces/${space.id}`}>
                 {space.name}
             </Button>
+            </div>
         )
     })
 
     return(
-        <div id="user-spaces-container">
+        <div id="user-spaces-container" key="user-spaces">
             <h4>Your Listings</h4>
             <div className="space-buttons-container">
                 {renderSpaces}
@@ -25,4 +27,4 @@ function UserListings({spaces}){
     )
 }
 
-export default UserListings;
+export default UserSpaces;

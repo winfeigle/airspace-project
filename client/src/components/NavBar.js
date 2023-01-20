@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from "react-bootstrap/esm/Button";
 import Navbar from 'react-bootstrap/Navbar';
 import LightLogo from '../light-logo.svg';
-// import { redirect } from "react-router-dom";
+
 
 function NavBar({ user, setUser }){
 
@@ -22,10 +22,10 @@ function NavBar({ user, setUser }){
             return(
                 <>
                     <Navbar.Text id="current-user-name">
-                       Hey, <b>{`@${user.username}`}</b>
+                       <b>{`@${user.username}`}</b>
                     </Navbar.Text>
                     <Button variant="info"     className="ms-3" href="/create-listing">
-                        ＋
+                        My Account
                     </Button>
                     <Button 
                         className="ms-2 mt-3 mb-3" variant="outline-info" 

@@ -11,7 +11,7 @@ function Login({ onLogin }){
     const [showLogin, setShowLogin] = useState(true)
 
     return(
-      <Card style={{ width: '25rem', paddingTop: '1rem', position: "relative", top: "50px" }} bg='light' className="mx-auto mt-5 p-4">
+      <Card style={{ width: '25rem', paddingTop: '1rem' }} bg='light' className="mx-auto mt-5 p-4">
         <Card.Title>
         { showLogin ? "Welcome back" : "Create an account"}
         </Card.Title>

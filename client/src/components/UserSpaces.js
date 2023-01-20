@@ -5,15 +5,13 @@ function UserSpaces({spaces}){
 
     const renderSpaces = spaces.map((space) => {
         return(
-            <div key={space.id}>
             <Button 
-                variant="outline-warning"
                 key={space.id}
+                variant="outline-warning"
                 className="user-space"
                 href={`/spaces/${space.id}`}>
                 {space.name}
             </Button>
-            </div>
         )
     })
 

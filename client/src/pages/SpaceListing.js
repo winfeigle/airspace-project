@@ -16,8 +16,9 @@ function SpaceListing({ user }){
             .then(setSpaceInfo);
       }, [params.id]);
 
+
     return(
-    <div id="space-container" style={{paddingTop: "120px"}}>
+    <div id="space-container">
         <h2 style={{color: "white"}}>{spaceInfo.name}</h2>
         <div id="images-container">
             <div className="featured-image">
@@ -54,6 +55,8 @@ function SpaceListing({ user }){
                         <Tab.Pane eventKey="#contact">
                             <b>Location</b>
                             <p>{spaceInfo.location}</p>
+                            <b>Listing User</b>
+                            
                         </Tab.Pane>
                     </Tab.Content>
             </Tab.Container>

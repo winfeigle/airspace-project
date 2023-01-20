@@ -14,6 +14,7 @@ function CreateListing({addNewSpace}){
 
     const handleSubmit = (e) => {
       e.preventDefault()
+      setErrors([])
       fetch('/spaces', {
         method: 'POST',
         headers: { 'Content-Type':'application/json'},
@@ -107,7 +108,7 @@ function CreateListing({addNewSpace}){
             }
           </div>
       
-      <Button variant="info" type="submit">
+      <Button variant="warning" type="submit">
         Submit
       </Button>
     </form>

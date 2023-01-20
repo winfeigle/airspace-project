@@ -50,7 +50,6 @@
   justify-content: center;
   margin: auto;
   position: relative;
-  top: 100px;
 }
 
 .spaces-container{
@@ -104,7 +103,6 @@ h2#star-rating{
     position: sticky;
     top: 50px;
     z-index: 1;
-    margin-top: 20px;
 }
 
 #dropdown{
@@ -155,41 +153,44 @@ form#listing-form{
   transition: 500ms;
 }
 
-#listing-form input{
+#listing-form input, #listing-form textarea{
+  border: none;
+  color: white;
   width: 100%;
+  background-color: #3b3f43;
+  transition: 200ms;
 }
 
-#listing-form textarea{
-  width: 100%;
-}
-
-input:focus,textarea:focus {
+#listing-form input:focus, #listing-form textarea:focus {
+  color: black;
   background-color: #d6d9df;
-  transition: 500ms;
+  transition: 200ms;
 }
 
 
 form#listing-form Button{
   justify-self: center;
-  margin-top: 20px;
-  width: 50%;
+  
+  padding: .5rem;
+  width: 60%;
 }
 
 div.errors-container{
-  margin-top: 10px;
+  margin: 10px;
   justify-self: center;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
+  flex-direction: column;
 }
 
 span#error-message{
-  /* width: 100%; */
+  width: 100%;
   padding: 5px 20px;
   margin: 3px;
-  color: red;
+  color: rgb(255, 0, 0);
   background-color: rgba(255, 0, 0, 0.10);
   border-radius: 5px;
 }
@@ -335,7 +336,6 @@ img#trash-icon{
   display: flex;
   justify-content: center;
   flex-wrap: wrap-reverse;
-  margin-top: 100px;
 }
 
 .review-space-container{
@@ -351,10 +351,16 @@ img#trash-icon{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  border: 1px solid;
+}
+
+#user-reviews-container{
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 #user-spaces-container{
-  margin-top: 5px;
+  margin-top: 1rem;
+  border-color:rgba(255, 178, 34, 0.25);
 }
 
 .space-buttons-container{

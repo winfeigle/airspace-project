@@ -39,9 +39,9 @@ function SpaceListing({ user }){
                         <ListGroup.Item action href="#reviews">
                         Reviews
                         </ListGroup.Item>
-                        <ListGroup.Item action href="#book">
+                        {/* <ListGroup.Item action href="#book">
                         Book
-                        </ListGroup.Item>
+                        </ListGroup.Item> */}
                     </ListGroup>
                     <Tab.Content id="list-content">
                        
@@ -52,7 +52,7 @@ function SpaceListing({ user }){
                                     <div className="additional-info">
                                         <div>
                                             <p>Price per week</p>
-                                            <h5>${spaceInfo.price}.00</h5> 
+                                            <h5>${spaceInfo.price}</h5> 
                                         </div>
                                         <div>
                                             <p>Rating</p>
@@ -67,10 +67,10 @@ function SpaceListing({ user }){
                         <Tab.Pane eventKey="#reviews">
                             <Reviews user={user} />
                         </Tab.Pane>
-                        <Tab.Pane eventKey="#book">
+                        {/* <Tab.Pane eventKey="#book">
                             <b>Book today!</b>
                             
-                        </Tab.Pane>
+                        </Tab.Pane> */}
                     </Tab.Content>
             </Tab.Container>
         </div>

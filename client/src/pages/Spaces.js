@@ -37,17 +37,19 @@ function Spaces(){
         
         const onSearchChange = (keyword) => {
 
-            setSearchResults(spaces.filter((space) => space.name.includes(keyword)))
+            setSearchResults(spaces.filter((space) => space.name.toLowerCase().includes(keyword.toLowerCase())))
         }
 
     return(
     <div className="spaces-page">
-    <FilterBar 
-        id="filter-bar"
-        onFilterChange={onFilterChange}
-        onSearchChange={onSearchChange}
-        filter={filter}
-        />
+        <div className="filter-bar-container">
+            <FilterBar 
+                id="filter-bar"
+                onFilterChange={onFilterChange}
+                onSearchChange={onSearchChange}
+                filter={filter}
+                />
+        </div>
         <div className="spaces-container">
            {
             !searchResults ?

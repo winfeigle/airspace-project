@@ -1,21 +1,23 @@
-import React, {useState} from "react";
+import React from "react";
 import FilterIcon from '../filter-icon.svg';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 
-function FilterBar(){
-    const [filter, setFilter] = useState(null)
+function FilterBar({onFilterChange, filter, onSearchChange}){
 
     const handleFilter = (keyword) => {
-        setFilter(keyword)
+        onFilterChange(keyword)
+    }
 
+    const handleSearch = (e) => {
+        onSearchChange(e.target.value)
     }
 
     return(
         <div id="filter-search-bar">     
         <Dropdown id='dropdown' >
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                    <img id="filter-icon" alt="filter button" src={FilterIcon}/>  { filter ? filter : "Filter"}
+                    <img id="filter-icon" alt="filter button" src={FilterIcon}/> { filter ? filter : "Filter"}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -37,7 +39,12 @@ function FilterBar(){
                 </Dropdown.Menu>
             </Dropdown>
             <div className="vertical-seperator"></div>
-            <Form.Control id='search-bar' type="text" placeholder={`Search office spaces`}/>
+            <Form.Control 
+                id='search-bar' 
+                type="text" 
+                placeholder={`Search office spaces`} 
+                onChange={(e) => handleSearch(e)}
+                />
         </div>
     )
 }

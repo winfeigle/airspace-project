@@ -30,7 +30,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                         </Button>
                     : 
                         <Button
-                            variant="outline-info" className="me-2"
+                            variant="warning" className="me-2"
                             onClick={() => {
                                 setEditable(!editable)
                                 handleReviewEdit(review.id, comment)

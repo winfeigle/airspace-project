@@ -57,6 +57,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 25px;
+  max-width: 1600px;
 }
 
 .space-card{

@@ -44,10 +44,25 @@ function SpaceListing({ user }){
                         </ListGroup.Item>
                     </ListGroup>
                     <Tab.Content id="list-content">
+                       
                         <Tab.Pane eventKey="#information">
-                            
-                            <b>Description</b>
-                            <p>{spaceInfo.description}</p>
+                                    <b>Description</b>
+                                    <p>{spaceInfo.description}</p>
+                                   <br/>
+                                    <div className="additional-info">
+                                        <div>
+                                            <p>Price per week</p>
+                                            <h5>${spaceInfo.price}.00</h5> 
+                                        </div>
+                                        <div>
+                                            <p>Rating</p>
+                                            <h5>★{spaceInfo.rating}</h5>
+                                        </div>
+                                        <div>
+                                            <p>Location</p>
+                                            <h5>{spaceInfo.location}</h5>
+                                        </div>
+                                    </div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="#reviews">
                             <Reviews user={user} />

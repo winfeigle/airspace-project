@@ -272,6 +272,26 @@ div#information-container{
   text-align: left;
 }
 
+div.additional-info{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+div.additional-info > div {
+  padding: 1rem 3rem;
+  border: 1px solid rgba(255, 178, 34, 0.25);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+div.additional-info>div p {
+  text-align: center;
+  margin-bottom: .5rem;
+  color: rgba(255, 178, 34)
+}
+
+
 div#reviews-container{
   display: flex;
   justify-content: flex-start;

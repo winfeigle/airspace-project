@@ -22,7 +22,7 @@ function SpaceCard({space}){
                         <h2>{`$${price}`} <span className="space-timeframe">week</span></h2>
                     </div>
                     <div>
-                        <h2 id="star-rating">{'★'+ rating}</h2>
+                        <h2 id="star-rating">{rating ? '★'+ rating : "★ unrated"}</h2>
                     </div>
             </article>
         </div>

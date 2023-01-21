@@ -4,7 +4,7 @@
 
 This project has a React frontend and Rails backend, deployed to Render. It is an AirBnB style app for office spaces.
 
-YouTube Walkthrough: https://www.youtube.com/
+YouTube Walkthrough: https://youtu.be/sNyWWEHWsac
 
 ![Project Screenshot](/airspace-screenshot.png "AirSpace Project")
 

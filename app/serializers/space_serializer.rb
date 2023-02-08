@@ -1,6 +1,6 @@
 class SpaceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :location, :description, :price, :image_url, :rating, :user_id
+  attributes :id, :name, :location, :description, :price, :image_url, :rating
   
-  has_one :user
-  # has_many :reviews
+  # has_many :users
+  has_many :reviews
 end

@@ -12,6 +12,7 @@ import Account from "./pages/Account";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [spaces, setSpaces] = useState([]);
 
   useEffect(() => {
     // auto-login
@@ -22,8 +23,18 @@ function App() {
           username: user.username
         }));
       }
-    });
+    }).then(
+      fetch("/spaces")
+            .then((r) => r.json())
+            .then(setSpaces)
+    )
   }, []);
+
+  console.log(spaces)
+
+  const updateSpaces = (newSpaces) => {
+    setSpaces(newSpaces)
+  }
 
 
   return (
@@ -40,7 +51,7 @@ function App() {
         
           <Route 
             path="/" 
-            element={<Spaces />} 
+            element={<Spaces spaces={spaces} updateSpaces={updateSpaces}/>} 
             />
             <Route 
             path="/account" 

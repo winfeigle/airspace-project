@@ -16,7 +16,6 @@ function SpaceListing({ user }){
             .then(setSpaceInfo);
       }, [params.id]);
 
-      console.log(spaceInfo)
 
 
     return(

@@ -403,6 +403,17 @@ img#trash-icon{
   opacity: 65%;
 }
 
+.user-review #user-review-title{
+  color: white;
+  opacity: 10%;
+  font-size: 1.5rem;
+}
+
+.user-review:hover #user-review-title{
+  opacity: 100%;
+  transition: 500ms;
+}
+
 .user-space{
   width: min-width;
 }

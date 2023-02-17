@@ -6,14 +6,16 @@ function UserReviews({reviews}){
     const renderReviews = reviews.map((review) => {
         return(
             <Button 
-                variant="outline-secondary"
+                variant="outline-warning"
                 className="user-review"
                 style={{textAlign: "left"}}
                 key={review.id}
                 href={`/spaces/${review.space_id}`}
                 >
-                 <b>{review.title}</b>
-                <p>{review.comment.substr(0,40)}...</p>
+                    <b id="user-review-title">{review.space.name}</b>
+                    <br/>
+                    <span>{review.title}</span>
+                    <p>{review.comment.substr(0,40)}...</p>
             </Button>
         )
     })

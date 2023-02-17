@@ -28,7 +28,7 @@ function Account(){
             <CreateListing addNewSpace={addNewSpace}/>
             <div className="review-space-container">
                 <UserReviews reviews={reviews}/>
-                <UserSpaces spaces={spaces}/>
+                {/* <UserSpaces spaces={spaces}/> */}
             </div>
         </div>
     )

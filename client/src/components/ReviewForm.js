@@ -7,6 +7,7 @@ function ReviewForm({spaceId, updateReviews}){
     const [ userReviewTitle, setUserReviewTitle ] = useState("")
     const [ userReviewComment, setUserReviewComment ] = useState("")
     const [ showForm, setShowForm ] = useState(true)
+    const [ errors, setErrors ] = useState([])
 
     useEffect(() => {
         setShowForm(false)
@@ -14,7 +15,6 @@ function ReviewForm({spaceId, updateReviews}){
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        setShowForm(false)
         fetch(`/reviews`, {
             method: "POST",
             headers: {'Content-Type':'application/json'},
@@ -24,7 +24,12 @@ function ReviewForm({spaceId, updateReviews}){
                 space_id: parseInt(spaceId)
             })
         }).then(res => {
-                if (res.ok){
+                if (!res.ok){
+                    res.json().then((err) =>{
+                    setErrors(err.errors)
+                })
+                }else{
+                    setShowForm(false)
                     res.json().then((data) => updateReviews(data))
                 }
             })
@@ -39,6 +44,7 @@ function ReviewForm({spaceId, updateReviews}){
         )
 
     return(
+        <div className="review-form-container">
         <div id="review-form">
                 <Form onSubmit={(e) => handleFormSubmit(e)}>
                     <FloatingLabel
@@ -81,6 +87,13 @@ function ReviewForm({spaceId, updateReviews}){
                     </Button>
                 </Form>
             </div>
+            { errors && 
+                <div id="errors-container">
+                    { errors.map(error => <span id="error-message" key={error}>{error}</span>)}
+                    
+                </div>
+                }
+        </div>
     )
 }
 

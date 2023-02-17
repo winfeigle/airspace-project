@@ -183,7 +183,7 @@ form#listing-form Button{
 }
 
 div.errors-container{
-  margin: 10px;
+  margin: 10px 0px;
   justify-self: center;
   width: 100%;
   display: flex;
@@ -196,8 +196,8 @@ div.errors-container{
 span#error-message{
   width: 100%;
   padding: 5px 20px;
-  margin: 3px;
-  color: rgb(255, 0, 0);
+  margin-top: 3px;
+  color: red;
   background-color: rgba(255, 0, 0, 0.10);
   border-radius: 5px;
 }

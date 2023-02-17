@@ -68,8 +68,6 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                 </Form>
             : <p>{review.comment}</p>}
                         
-
-
             <span className="review-username">
                 <b>{`@${review.user.username}`}</b>
             </span>

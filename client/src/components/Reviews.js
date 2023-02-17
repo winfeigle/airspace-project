@@ -7,6 +7,7 @@ import ReviewForm from "./ReviewForm";
 function Reviews({user}){
     const params = useParams()
     const [ reviews, setReviews ] = useState([])
+    const [ errors, setErrors ] = useState([])
     
 
     useEffect(() => {
@@ -36,7 +37,10 @@ function Reviews({user}){
                     })
                     return updatedReviews;
                 })
-    
+            }else{
+                res.json().then((err) => {
+                    alert(`EDIT ERROR: ${err.errors}`)
+                })
             }
         })
     }
@@ -67,6 +71,7 @@ function Reviews({user}){
 
             {reviews.map(review => {
                 return(<Review 
+                    errors={errors}
                     key={review.id}
                     review={review} 
                     user={user}

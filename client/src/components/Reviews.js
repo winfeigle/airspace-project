@@ -7,7 +7,6 @@ import ReviewForm from "./ReviewForm";
 function Reviews({user}){
     const params = useParams()
     const [ reviews, setReviews ] = useState([])
-    const [ errors, setErrors ] = useState([])
     
 
     useEffect(() => {
@@ -70,8 +69,7 @@ function Reviews({user}){
                 />
 
             {reviews.map(review => {
-                return(<Review 
-                    errors={errors}
+                return(<Review
                     key={review.id}
                     review={review} 
                     user={user}

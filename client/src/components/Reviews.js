@@ -26,7 +26,12 @@ function Reviews({user}){
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({comment: comment})
         }).then(res => {
-            if(res.ok){
+            if(!res.ok){
+                res.json().then((err) =>{
+                    alert(err.errors)
+                    return reviews;
+                })
+            }else{
                 setReviews((reviews) => {
                     let updatedReviews = reviews.map(review => {
                         if(review.id === reviewId){
@@ -35,10 +40,6 @@ function Reviews({user}){
                         return review;
                     })
                     return updatedReviews;
-                })
-            }else{
-                res.json().then((err) => {
-                    alert(`EDIT ERROR: ${err.errors}`)
                 })
             }
         })

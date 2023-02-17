@@ -3,11 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function Review({review, user, handleReviewEdit, handleReviewDestroy}){
+function Review({review, user, errors, handleReviewEdit, handleReviewDestroy}){
     const [ editable, setEditable ] = useState(false)
     const [ comment, setComment ] = useState(review.comment)
 
-
+    const onReviewEdit = () => {
+        setEditable(!editable)
+        handleReviewEdit(review.id, comment)
+    }
 
 
     return(
@@ -31,10 +34,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                     : 
                         <Button
                             variant="warning" className="me-2"
-                            onClick={() => {
-                                setEditable(!editable)
-                                handleReviewEdit(review.id, comment)
-                                }}
+                            onClick={onReviewEdit}
                             > save edits
                         </Button>
                     }
@@ -67,7 +67,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                         />
                 </Form>
             : <p>{review.comment}</p>}
-                        
+
             <span className="review-username">
                 <b>{`@${review.user.username}`}</b>
             </span>
